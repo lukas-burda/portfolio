@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import CustomTitle from "../CustomTitle/CustomTittle";
+import CustomTitle from "../CustomTitle/CustomTitle";
 
 interface ContactLinksViewProps {
   linkedinHref: string;
@@ -8,32 +8,44 @@ interface ContactLinksViewProps {
   showTitle?: boolean;
 }
 
-export const ContactLinksView: React.FC<ContactLinksViewProps> = (props) => {
+export const ContactLinksView: React.FC<ContactLinksViewProps> = ({
+  showTitle,
+  linkedinHref,
+  githubHref,
+  emailHref
+}) => {
   return (
-    <div>
-      {props.showTitle && (
+    <div className="w-full">
+      {showTitle && (
         <CustomTitle
           text="Contatos"
           as="h2"
-          className="text-md text-center font-bold"
+          className="text-2xl text-center font-bold mb-4"
         />
       )}
-      <div className="flex justify-center m-5  space-x-6 text-3xl">
+      <div className="flex justify-center space-x-6 text-3xl">
         <a
-          href={props.githubHref}
-          className="hover:text-cyan-400 transition-colors"
+          href={githubHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-cyan-400 transition-colors duration-300"
+          aria-label="GitHub"
         >
           <FaGithub />
         </a>
         <a
-          href={props.linkedinHref}
-          className="hover:text-cyan-400 transition-colors"
+          href={linkedinHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-cyan-400 transition-colors duration-300"
+          aria-label="LinkedIn"
         >
           <FaLinkedin />
         </a>
         <a
-          href={"mailto:" + props.emailHref}
-          className="hover:text-cyan-400 transition-colors"
+          href={emailHref}
+          className="hover:text-cyan-400 transition-colors duration-300"
+          aria-label="Email"
         >
           <FaEnvelope />
         </a>

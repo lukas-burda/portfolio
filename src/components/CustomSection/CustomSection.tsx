@@ -4,10 +4,16 @@ interface CustomSectionProps {
   className?: string;
 }
 
-export const CustomSection: React.FC<CustomSectionProps> = ({ ...props }) => {
+export const CustomSection: React.FC<CustomSectionProps> = ({ 
+  id, 
+  children, 
+  className = '' 
+}) => {
   return (
-    <section className={`min-h-screen my-10 py-10 ${props.className}`} id={props.id}>
-      {props.children}
+    <section className={`min-h-screen py-16 ${className}`} id={id}>
+      <div className="container mx-auto px-4">
+        {children}
+      </div>
     </section>
   );
 };

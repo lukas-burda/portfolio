@@ -1,5 +1,5 @@
 import { FaBrain } from "react-icons/fa";
-import CustomTitle from "../../components/CustomTitle/CustomTittle";
+import CustomTitle from "../../components/CustomTitle/CustomTitle";
 import SkillListCard from "../../components/SkillListView/SkillListView";
 import { CustomSection } from "../../components/CustomSection/CustomSection";
 
@@ -31,16 +31,16 @@ export const Skills: React.FC = () => {
     "Documentação & Suporte: Documentação técnica (interna e pública), Suporte a times e parceiros (APIs/integradores), Experiência do desenvolvedor (DX)",
   ];
   return (
-    <CustomSection id="skills">
-      <div className="flex justify-center text-center items-center space-x-4 text-5xl mb-6">
-        <FaBrain />
+    <CustomSection id="skills" className="max-w-6xl mx-auto">
+      <div className="flex justify-center items-center gap-4 mb-12">
+        <FaBrain className="text-4xl md:text-5xl text-cyan-400" />
         <CustomTitle
           text="Habilidades"
-          as="h3"
-          className="font-bold"
+          as="h2"
+          className="text-4xl md:text-5xl font-bold"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <SkillListCard skillList={mySoftSkills} title="Soft Skills" />
         <SkillListCard skillList={myHardSkills} title="Hard Skills" />
       </div>

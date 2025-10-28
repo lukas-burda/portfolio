@@ -1,7 +1,7 @@
 // src/components/navbar/Navbar.tsx
 import React, { useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
-import { FaCode, FaHome, FaLayerGroup, FaUser, FaBrain } from "react-icons/fa";
+import { FaCode, FaHome, FaLayerGroup, FaUser, FaBrain, FaCogs } from "react-icons/fa";
 import type { NavLinkItem } from "../../interfaces/navbar/NavLinkItems";
 import NavLink from "../../components/NavLink/NavLink";
 
@@ -34,9 +34,9 @@ export const Navbar: React.FC = () => {
     },
     {
       href: "#skills",
-      text: "Competências",
+      text: "Habilidades",
       className: baseNavLinkClasses,
-      children: <FaUser size={navIconSize} title="About" />,
+      children: <FaCogs size={navIconSize} title="Skills" />,
     },
     {
       text: "Portfólio",
@@ -58,10 +58,10 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="backdrop-blur-lg py-4 px-4 sm:px-8 fixed top-0 left-0 w-full ">
+    <nav className="backdrop-blur-lg bg-neutral-900/50 py-4 px-4 sm:px-8 fixed top-0 left-0 w-full z-50 border-b border-neutral-800">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <h1 className="font-bold font-mono text-2xl sm:text-3x tracking-wide">
+          <h1 className="font-bold font-mono text-2xl sm:text-3xl tracking-wide">
             <a
               href="/portfolio/"
               onClick={closeMenu}
@@ -70,29 +70,19 @@ export const Navbar: React.FC = () => {
               Lukas Burda
             </a>
           </h1>
-          {/* <LottieCustomView
-            src={spaceManLottieFile}
-            className="w-10 h-10 sm:w-12 sm:h-12 object-cover transition-all duration-300"
-          /> */}
         </div>
 
-        <div className="sm:hidden">
-          <button
-            onClick={toggleMenu}
-            className="focus:outline-none focus:ring-2 focus:text-cyan-400 rounded-md p-1"
-            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {isMobileMenuOpen ? (
-              <div className="w-full h-full">
-                <IoClose />
-              </div>
-            ) : (
-              <div className="w-full h-full">
-                <IoMenu />
-              </div>
-            )}
-          </button>
-        </div>
+        <button
+          onClick={toggleMenu}
+          className="sm:hidden focus:outline-none focus:ring-2 focus:text-cyan-400 rounded-md p-2 text-2xl"
+          aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+        >
+          {isMobileMenuOpen ? (
+            <IoClose />
+          ) : (
+            <IoMenu />
+          )}
+        </button>
 
         {/* Desktop Navigation */}
         <div className="hidden sm:block">
@@ -101,21 +91,15 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div
-        className={`
-        sm:hidden
-        ${isMobileMenuOpen ? "block" : "hidden"}
-        backdrop-blur-lg 
-        rounded-md
-        transition-all duration-300 ease-in-out
-      `}
-      >
-        <NavLink
-          list={navLinkList}
-          isMobileMenuOpen={isMobileMenuOpen}
-          onLinkClick={closeMenu}
-        />
-      </div>
+      {isMobileMenuOpen && (
+        <div className="sm:hidden backdrop-blur-lg bg-neutral-900/50 rounded-md mt-4 border border-neutral-800 transition-all duration-300 ease-in-out">
+          <NavLink
+            list={navLinkList}
+            isMobileMenuOpen={isMobileMenuOpen}
+            onLinkClick={closeMenu}
+          />
+        </div>
+      )}
     </nav>
   );
 };

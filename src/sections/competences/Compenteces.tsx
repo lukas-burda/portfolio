@@ -1,6 +1,6 @@
 import { FaGraduationCap } from "react-icons/fa";
 
-import CustomTitle from "../../components/CustomTitle/CustomTittle";
+import CustomTitle from "../../components/CustomTitle/CustomTitle";
 import type { Certificate } from "../../interfaces/competences/Certificate";
 import CertificatesListView from "../../components/CertificatesListView/CertificateListView";
 import { CustomSection } from "../../components/CustomSection/CustomSection";
@@ -77,19 +77,15 @@ export const Competences = () => {
   ];
 
   return (
-    <CustomSection
-      id="competences"
-    >
-      <div className="flex justify-center text-center items-center space-x-4 text-5xl mb-6">
-        <FaGraduationCap />
+    <CustomSection id="competences" className="max-w-5xl mx-auto">
+      <div className="flex justify-center items-center gap-4 mb-12">
+        <FaGraduationCap className="text-4xl md:text-5xl text-cyan-400" />
         <CustomTitle
           text="Formações & Certificados"
-          as="h3"
-          className="font-bold"
+          as="h2"
+          className="text-4xl md:text-5xl font-bold"
         />
       </div>
-      {/* Formação Acadêmica */}
-      {/* Certificados */}
       <CertificatesListView certificates={certificatesData} />
     </CustomSection>
   );
