@@ -14,7 +14,7 @@ export const HomePage: React.FC = () => {
         </div>
 
         <p className="text-base sm:text-lg md:text-xl mb-8 max-w-4xl text-center leading-relaxed text-neutral-300">
-          Atuo como Coordenador Técnico de Produto e Desenvolveimento, com atividades
+          Atuo como Coordenador Técnico de Produto e Desenvolvimento, com atividades
           que envolvem gestão de backlog, definição de requisitos, coordenação
           de sprints, qualidade de entregas e implementação outras soluções e parceiros. Desenvolvedor com experiência em diversas
           tecnologias e linguagens de programação.
